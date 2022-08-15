@@ -1,0 +1,20 @@
+{
+  "first_name": "Jonathan",
+  "last_name": "Freeman",
+  "login_count": 4,
+  "is_writer": true,
+  "works_with_entities": [
+    "Spantree Technology Group",
+    "InfoWorld"
+  ],
+  "pets" : [
+    {
+      "name": "Lilly",
+      "type": "Raccoon"
+    }
+  ]
+}
+
+
+
+

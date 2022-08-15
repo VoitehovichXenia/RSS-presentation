@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>JSON, YAML, TOML what are these strange letters mean?</h1>
+					</section>
+					<section>
+						<p class="plain-text">All these abbreviations are referred to data serialization formats</p>
+						<p>Our goals for today's lecture</p>
+						<ol class="list small-font">
+							<li>get to know what is JSON, YAML, TOML</li>
+							<li>learn their main features</li>
+							<li>find differences between them</li>
+							<li>compare them and understand which format is the best and why</li>
+						</ol>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>JSON</h2>
+					</section>
+					<section>
+						<p class="plain-text"><span class="highlight">JavaScriptObjectNotation</span> - is a language-independent, text-based representation of structured data based on JavaScript.</p>
+						<p class="plain-text">It as developed by Douglas Crockford in 2000.</p>
+						<p class="plain-text">JSON filenames use the extension <span class="highlight">.json</span></p>
+					</section>
+					<section>
+						<h2>Why do we need JSON?</h2>
+						<ol class="list">
+							<li>To store data</li>
+							<li>For data transmission </li>
+							<li><span class="highlight">Human-redable format to do this actions</span></li>
+						</ol>
+					</section>
+					<section>
+						<div class="fl-row">
+							<div class="fl-column">
+								<h4>Supported types</h4>
+								<ul class="list">
+									<li>string</li>
+									<li>number</li>
+									<li>boolean</li>
+									<li>null</li>
+									<li>object (special JSON object)</li>
+									<li>array</li>
+								</ul>
+							</div>
+							<div class="fl-column">
+								<h4>Non supported types</h4>
+								<p class="sub-description">(values of this types will be converted to string)</p>
+								<ul class="list">
+									<li>function</li>
+									<li>Date</li>
+									<li>undefined</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h2>Data exchainging</h2>
+						<img data-src="./assets/client-server.png">
+					</section>
+					<section>
+						<h2>JSON's vs XML</h2>
+						<h4>compare redability</h4>
+						<div class="images-container_json r-hstack justify-around">
+							<img data-src="./assets/xml.png">
+							<img data-src="./assets/json-xml.png">
+						</div>
+					</section>
+					<section>
+						<h4>Advantages</h4>
+						<ul class="list small-font">
+							<li>Human-readable</li>
+							<li>Compact</li>
+							<li>Fast</li>
+							<li>Support arrays</li>
+							<li>Unique way to exchange data between different domens.</li>
+							<li>Has built-in methods for object's serialisation and deserialization</li>
+							<li>Supported by wide range of different services</li>
+							<li>Language-independent</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Drawbacks</h4>
+						<ol class="list small-font">
+							<li>
+								No schema
+								<ul class="list">
+									<li>As plus - total flexibility to represent the data</li>
+									<li>Drawback - you could accidentally create misshapen data very easily</li>
+								</ul>
+							</li>
+							<li>
+								No comments
+							</li>
+							<li>
+								Only one number type
+							</li>
+						</ol>
+					</section>
+					<section>
+						<h4>Drawbacks</h4>
+						<ol class="list small-font" start="4">
+							<li>
+								No date type
+								<ul class="list">
+									<li>string representations</li>
+									<li>represent in the form of milliseconds since January 1, 1970</li>
+								</ul>
+							</li>
+							<li>
+								Verbosity
+							</li>	
+							<li>
+								No way to reduce sections of repeated code (no variables)
+								<ul class="list">
+									<li>can't create or use external variables</li>
+								</ul>
+							</li>
+							<li>
+								Values ​​cannot be overridden
+							</li>							
+						</ol>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>YAML</h2>
+					</section>
+					<section>
+						<p class="plain-text"><span class="highlight">YAML</span> - firstly was said to mean Yet Another Markup Language, but later was renamed as YAML Ain't Markup Language to distinguish its purpose as data-oriented, rather than document markup</p>
+						<p class="plain-text">It was developed by Clark Evans in 2001</p>
+						<p class="plain-text">YAML is more frequently used as a format for different configuration files</p>
+						<p class="plain-text">YAML filenames use the extensions <span class="highlight">.yaml</span> or <span class="highlight">.yml</span></p>
+					</section>
+					<section>
+						<h3>Supported types</h3>
+						<ol class="list">
+							<li>
+								Scalars
+								<ul class="list">
+									<li>String</li>
+									<li>
+										Numeric types:
+										<ul class="list">
+											<li>Integer</li>
+											<li>Float</li>
+											<li>Boolean</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>Lists</li>
+							<li>Dictionaries</li>
+						</ol>								
+					</section>
+					<section>
+						<h2>Syntax</h2>
+					</section>
+					<section>
+						<p class="plain-text">Common syntax features:</p>
+						<ul class="list">
+							<li>
+								Indentations are required
+								<ul class="list">
+									<li>Separate data on "levels"</li>
+									<li>Only spaces are used, tabs are not allowed</li>
+								</ul>
+							</li>
+							<li>Multiple documents within a single stream are separated by three hyphens (---)</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Key/value pairs syntax</h4>
+						<p class="plain-text">Note, that compound keys (which consists of 2 and more words) can use a space, however this syntax variant is not recommended</p>
+						<img data-src="./assets/yaml-key-value.png">
+					</section>
+					<section>
+						<h4>Strings</h4>
+						<ul class="list small-font">
+							<li>If string contains some special character like _ or @, you will need quotes</li>
+							<li>A question mark in front of a key ("?key: value") allows the key to contain some special characters without quotes</li>
+						</ul>
+						<img data-src="./assets/yaml-strings.png" width="400px">
+					</section>
+					<section>
+						<h4>Strings</h4>
+						<p class="plain-text">Strings are delimited with indentation with optional modifiers to preserve (|) or fold (>) newlines</p>
+						<div class="images-container_yaml">
+							<img data-src="./assets/yaml-string-2.png">
+							<img data-src="./assets/yaml-string-3.png">
+						</div>
+					</section>
+					<section>
+						<h4>Numbers</h4>
+						<img data-src="./assets/yaml-numbers.png">
+						<h4>Comments</h4>
+						<ul class="list">
+							<li>To write a comment, you can use # followed by your message</li>
+							<li>Comment can start anywhere on a line and continue until the end of the line</li>
+							<li>Comments must be separated from other tokens by whitespace characters</li>
+						</ul>
+						<img data-src="./assets/yaml-comment.png">
+					</section>
+					<section>
+						<h4>Lists</h4>
+						<ul class="list">
+							<li>For representing lists in YAML you can use arrays and markdown-like syntax (use indentations and hyphen)</li>
+						</ul>
+						<img data-src="./assets/yaml-lists.png">
+					</section>
+					<section>
+					<h4>Dictionaries</h4>
+						<ul class="list">
+							<li>For representing lists in YAML you can use arrays and markdown-like syntax (use indentations and hyphen)</li>
+						</ul>
+						<img data-src="./assets/dictionary.png">
+					</section>
+					<section>
+						<h4>Anchor</h4>
+						<p class="small-font">(variable or reference)</p>
+						<ul class="list small-font">
+							<li>An ampersand symbol (&) is used to create anchor, and an asterisk(alias) (*) is used to insert it.</li>
+						</ul>
+							<div class="images-container_yaml h430">
+								<img data-src="./assets/yaml.png">
+								<img data-src="./assets/json-vs-yaml.png">
+							</div>
+					</section>					
+					<section>
+						<h2>Advantages of YAML:</h2>
+						<ul class="list">
+							<li>Language-independent</li>
+							<li>More human-readble</li>
+							<li>Has Anchors (variables or references)</li>
+							<li>Has Comments</li>
+							<li>Has Indented delimiting</li>
+						</ul>
+					</section>
+					<section>
+						<h2>And Drawbacks</h2>
+						<ul class="list">
+							<li>Need special parser-package</li>
+							<li>The parsers are younger than JSON's and known to be less secure</li>
+							<li>YAML is mainly designed for configuration files, when use for data interchange , many of YAML's features lose their appeal</li>
+						</ul>
+					</section>
+				</section>				
+				<section>
+					<section>
+						<h2>TOML</h2>
+					</section>
+					<section>
+						<p class="plain-text"><span class="highlight">TOML</span> - Tom’s Obvious, Minimal Language</p>
+						<p class="plain-text">Is was developed by Tom Preston-Werner in 2013</p>
+						<p class="plain-text">TOML filenames use the extension <span class="highlight">.toml</span></p>
+						<p class="plain-text">TOML's syntax primarily consists of <span class="highlight">key = "value"</span> pairs, <span class="highlight">[section names]</span>, and <span class="highlight"># comments</span></p>
+					</section>
+					<section>
+						<h4>Supported data types:</h4>
+						<ul class="list">
+							<li>String</li>
+							<li>Integer</li>
+							<li>Float</li>
+							<li>Boolean</li>
+							<li>Datetime</li>
+							<li>Array</li>
+							<li>Table (hash-table)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Syntax</h2>
+					</section>
+					<section>
+						<h3>Example</h3>
+						<img data-src="./assets/toml.png" width="450px">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Summary</h2>
+					</section>
+					<section>
+						<h3>What we want from ideal serialisation/deserialisation format?</h3>
+						<ul class="list">
+							<li>To be human-readble</li>
+							<li>To require a little space</li>
+							<li>Easy to edit and write code (DRY, comments, variables)</li>
+							<li>Easy to install, include in project</li>
+							<li>High supportion by different languages, programs</li>
+							<li>Security</li>
+						</ul>
+					</section>
+					<section>
+						<table class="summary-table">
+							<tr>
+								<th>Criteria/Name</th>
+								<th>JSON</th>
+								<th>YAML</th>
+								<th>TOML</th>
+							</tr>
+							<tr>
+								<td>human readble</td>
+								<td>+</td>
+								<td class="td-green">++</td>
+								<td class="td-green">++</td>
+							</tr>
+							<tr>
+								<td>memory space</td>
+								<td>+</td>
+								<td class="td-green">+++</td>
+								<td>++</td>
+							</tr>
+							<tr>
+								<td>comments</td>
+								<td>-</td>
+								<td class="td-green">+</td>
+								<td class="td-green">+</td>
+							</tr>
+							<tr>
+								<td>variables</td>
+								<td>-</td>
+								<td class="td-green">+</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>security</td>
+								<td class="td-green">++</td>
+								<td>+</td>
+								<td>+</td>
+							</tr>
+							<tr>
+								<td>supportion</td>
+								<td>
+									<ul>
+										<li class="td-green">all languages</li>
+										<li class="td-green">suitable for configuration files</li>
+										<li class="td-green">suitable for data exchanging</li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li class="td-green">all languages</li>
+										<li class="td-green">IDEAL for configuration files</li>
+										<li>NOT suitable for data exchanging</li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li class="td-green">all languages</li>
+										<li class="td-green">suitable for configuration files</li>
+										<li>NOT suitable for data exchanging</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>special features</td>
+								<td>
+									<ul>
+										<li>NO comments</li>
+										<li>NO variables</li>
+										<li>lack of types</li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li class="td-green">comments</li>
+										<li class="td-green">relational anchors</li>
+										<li class="td-green">strings without quotation marks</li>
+										<li>identation (only spaces) is required</li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li class="td-green">comments</li>
+										<li>NO variables</li>
+										<li>indentation (tabs and/or spaces) is allowed but not required</li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Thank you for your attention!</h2>
+						<img data-src="./assets/cat.png">
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
